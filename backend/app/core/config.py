@@ -12,17 +12,17 @@ class Settings(BaseSettings):
     DEBUG: bool = True
 
     # ===== JWT =====
-    JWT_SECRET: str
+    JWT_SECRET: str = "local-dev-secret-key-12345"
     JWT_ALGORITHM: str = "HS256"
     JWT_EXPIRATION_HOURS: int = 720
 
-    # ===== Supabase =====
-    SUPABASE_URL: str
-    SUPABASE_ANON_KEY: str
-    SUPABASE_SERVICE_ROLE_KEY: str
+    # ===== Supabase (optional for local dev) =====
+    SUPABASE_URL: Optional[str] = None
+    SUPABASE_ANON_KEY: Optional[str] = None
+    SUPABASE_SERVICE_ROLE_KEY: Optional[str] = None
 
-    # ===== Redis =====
-    UPSTASH_REDIS_URL: str
+    # ===== Redis (optional for local dev) =====
+    UPSTASH_REDIS_URL: Optional[str] = None
     REDIS_NAMESPACE: str = "coduku"
 
     # ===== Judge0 =====
@@ -33,6 +33,7 @@ class Settings(BaseSettings):
     CORS_ORIGINS: List[str] = [
         "http://localhost:3000",
         "http://localhost:3001",
+        "https://coduku-frontend.vercel.app",
     ]
 
     # ===== DB =====

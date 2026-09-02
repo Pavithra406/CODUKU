@@ -30,6 +30,7 @@ class Settings(BaseSettings):
     CORS_ORIGINS: List[str] = [
         "http://localhost:3000",
         "http://localhost:3001",
+        "https://coduku-frontend.vercel.app",
     ]
 
     MONGODB_URL: Optional[str] = None
